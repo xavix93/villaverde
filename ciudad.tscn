@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/city_controller.gd" id="1_controller"]
+[ext_resource type="Script" path="res://scripts/game_state.gd" id="2_state"]
+[ext_resource type="Script" path="res://scripts/building_manager.gd" id="3_buildings"]
+[ext_resource type="Script" path="res://scripts/city_world.gd" id="4_world"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="5_camera"]
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="6_ui"]
+
+[node name="Ciudad" type="Node2D"]
+script = ExtResource("1_controller")
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("2_state")
+
+[node name="BuildingManager" type="Node" parent="."]
+script = ExtResource("3_buildings")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("4_world")
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(1400, 712)
+script = ExtResource("5_camera")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Screen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_ui")
